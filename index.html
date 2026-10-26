@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>嘉豪的个人主页 · 自我介绍</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="gate-open">
+  <!-- 阅读进度条 -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- 入站闯关小游戏 -->
+  <div class="gate" id="gate" aria-live="polite">
+    <div class="gate-card">
+      <div class="gate-emoji">🎮</div>
+      <h2 class="gate-title">欢迎来到嘉豪的主页！</h2>
+      <p class="gate-sub">进门前先闯个小关：答对 <b id="gateProgress">0 / 3</b> 道关于我的问题，大门就会打开～</p>
+      <div class="gate-question" id="gateQuestion"></div>
+      <div class="gate-options" id="gateOptions"></div>
+      <p class="gate-feedback" id="gateFeedback">&nbsp;</p>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a href="#home" class="nav-logo">嘉豪</a>
+    <div class="nav-links">
+      <a href="#about">关于我</a>
+      <a href="#likes">兴趣爱好</a>
+      <a href="#hometown">我的家乡</a>
+      <a href="#future">我的规划</a>
+      <a href="#contact">联系我</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- 首屏 -->
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <p class="hero-hi">Hello! 你好 👋</p>
+        <h1>我是董嘉豪</h1>
+        <p class="hero-sub">2026级 国际教育学院 · 教育技术学专业</p>
+        <p class="hero-desc">一个爱笑的、积极乐观的人。热爱跑步，喜欢在镜头和故事里体会多样的人生。</p>
+        <div class="hero-tags">
+          <span class="tag">🏃 热爱跑步</span>
+          <span class="tag">😄 积极乐观</span>
+          <span class="tag">🎯 目标感强</span>
+        </div>
+      </div>
+      <div class="avatar" aria-label="嘉豪的搞怪头像（点我有彩蛋）">
+        <img src="photo1.jpg" alt="嘉豪的搞怪眼睛头像">
+      </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section class="card" id="about">
+      <h2>关于我</h2>
+      <p>我是 2026 级国际教育学院教育技术学专业的新生董嘉豪。性格开朗，爱笑，做事有规划、有热情。希望大学四年既能踏实学好专业，也能坚持自己热爱的运动。</p>
+    </section>
+
+    <!-- 兴趣爱好 -->
+    <section class="card" id="likes">
+      <h2>我的兴趣与爱好</h2>
+      <div class="like-grid">
+        <article class="like">
+          <h3>🏃 跑步</h3>
+          <p>我的热血挥洒。用脚步丈量校园，用汗水保持状态。</p>
+          <figure class="like-figure">
+            <img src="img/photo2.jpg" alt="上外欢乐跑 3.5 公里成绩证书：董嘉豪，20分58秒，第50名" loading="lazy">
+            <figcaption>最近成绩：上外迎新欢乐跑 3.5km · 第 50 名 · 20′58″</figcaption>
+          </figure>
+        </article>
+        <article class="like">
+          <h3>📱 刷抖音</h3>
+          <p>打发空闲、无聊的时刻，也顺便涨涨见识。</p>
+        </article>
+        <article class="like">
+          <h3>📺 看电视剧</h3>
+          <p>沉浸于角色之中，体会多样的人生。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 家乡与规划 -->
+    <section class="card details" id="hometown">
+      <h2>我的家乡介绍</h2>
+      <p>我的家乡是渭南市澄城县的一个小村庄。它虽然很小，但却有很多有趣的庙会与市集——尤其是每年春节的时候，家家户户放起鞭炮、烟花和孔明灯，一下子便让村落热闹与繁华了起来。</p>
+      <p><a class="link" href="https://b23.tv/wbzdXfj" target="_blank" rel="noopener">▶ 这是关于澄城县的介绍视频，点我跳转</a></p>
+
+      <h2 id="future">我的规划</h2>
+      <ul class="plan-list">
+        <li>顺利修完学业，圆满毕业</li>
+        <li>争取满绩点，把专业学扎实</li>
+        <li>希望能够讲一口流利的英语</li>
+      </ul>
+
+      <h3>我的梦想</h3>
+      <p>成为一名外交官或明星 ✨</p>
+    </section>
+
+    <!-- 联系我 -->
+    <section class="card contact" id="contact">
+      <h2>联系我</h2>
+      <p>欢迎了解和发现我的更多方面～</p>
+      <p class="contact-mail">邮箱：<a href="mailto:3058691809@qq.com">3058691809@qq.com</a></p>
+    </section>
+
+    <footer class="footer">© 2026 嘉豪的个人主页与自我介绍 · <span id="egg">👀</span></footer>
+  </main>
+
+  <script>
+    /* ========== 1. 入站闯关问答 ========== */
+    (function () {
+      var QUIZ = [
+        { q: '我的专业是？', options: ['教育技术学', '计算机科学', '体育教育', '国际贸易'], answer: 0 },
+        { q: '我最热爱的运动是？', options: ['篮球', '跑步', '游泳', '羽毛球'], answer: 1 },
+        { q: '我的家乡在哪个城市？', options: ['西安', '渭南', '洛阳', '宝鸡'], answer: 1 },
+        { q: '我的梦想是成为？', options: ['外交官或明星', '程序员', '医生', '厨师'], answer: 0 }
+      ];
+      // 随机抽 3 题、打乱选项
+      function shuffle(arr) {
+        var a = arr.slice();
+        for (var i = a.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var t = a[i]; a[i] = a[j]; a[j] = t;
+        }
+        return a;
+      }
+      var picked = shuffle(QUIZ).slice(0, 3).map(function (item) {
+        var idx = shuffle(item.options.map(function (_, i) { return i; }));
+        return {
+          q: item.q,
+          options: idx.map(function (i) { return item.options[i]; }),
+          answer: idx.indexOf(item.answer)
+        };
+      });
+      var qi = 0;
+      var qEl = document.getElementById('gateQuestion');
+      var oEl = document.getElementById('gateOptions');
+      var fEl = document.getElementById('gateFeedback');
+      var pEl = document.getElementById('gateProgress');
+
+      function render() {
+        var item = picked[qi];
+        pEl.textContent = qi + ' / 3';
+        qEl.textContent = 'Q' + (qi + 1) + ' · ' + item.q;
+        fEl.innerHTML = '&nbsp;';
+        oEl.innerHTML = '';
+        item.options.forEach(function (text, i) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.textContent = text;
+          btn.onclick = function () { answer(btn, i === item.answer); };
+          oEl.appendChild(btn);
+        });
+      }
+
+      function answer(btn, ok) {
+        if (ok) {
+          btn.classList.add('correct');
+          fEl.textContent = '✅ 答对啦！';
+          qi++;
+          setTimeout(qi < picked.length ? render : finish, 650);
+        } else {
+          btn.classList.add('wrong');
+          fEl.textContent = '❌ 再想想，提示就在下面的页面里～';
+          setTimeout(function () { btn.classList.remove('wrong'); }, 450);
+        }
+      }
+
+      function finish() {
+        pEl.textContent = '3 / 3';
+        fEl.textContent = '🎉 全部答对，欢迎进入！';
+        var gate = document.getElementById('gate');
+        setTimeout(function () {
+          gate.classList.add('gate-done');
+          document.body.classList.remove('gate-open');
+          // 入场动画从此时机开始，保证可见
+          setTimeout(function () { gate.remove(); }, 800);
+        }, 700);
+      }
+
+      render();
+    })();
+
+    /* ========== 2. 卡片滚动入场动画 ========== */
+    (function () {
+      var els = document.querySelectorAll('.card, .hero, .like');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('reveal-visible'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('reveal-visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(function (el, i) {
+        el.classList.add('reveal');
+        el.style.transitionDelay = (i % 3) * 90 + 'ms';
+        io.observe(el);
+      });
+    })();
+
+    /* ========== 3. 顶部阅读进度条 ========== */
+    (function () {
+      var bar = document.getElementById('scrollProgress');
+      window.addEventListener('scroll', function () {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+      }, { passive: true });
+    })();
+
+    /* ========== 4. 头像点击彩蛋：冒表情 ========== */
+    (function () {
+      var avatar = document.querySelector('.avatar');
+      var emojis = ['😄', '🏃', '✨', '🎉', '👀'];
+      avatar.addEventListener('click', function (e) {
+        var s = document.createElement('span');
+        s.className = 'pop-emoji';
+        s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        s.style.left = (e.offsetX || avatar.offsetWidth / 2) + 'px';
+        avatar.appendChild(s);
+        setTimeout(function () { s.remove(); }, 1200);
+      });
+    })();
+  </script>
+</body>
+
+</html>
